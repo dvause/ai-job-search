@@ -1,0 +1,36 @@
+# Dependabot: weekly grouped version updates + grouped security updates.
+# Majors arrive as separate PRs. Docs: https://docs.github.com/code-security/dependabot
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directories:
+      - "/.agents/skills/freehire-search/cli"
+      - "/.agents/skills/jobbank-search/cli"
+      - "/.agents/skills/jobdanmark-search/cli"
+      - "/.agents/skills/jobindex-search/cli"
+      - "/.agents/skills/jobnet-search/cli"
+      - "/.agents/skills/linkedin-search/cli"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 5
+    groups:
+      npm-security:
+        applies-to: security-updates
+        patterns: ["*"]
+      npm-minor-patch:
+        applies-to: version-updates
+        update-types: ["minor", "patch"]
+        patterns: ["*"]
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    groups:
+      actions:
+        patterns: ["*"]
